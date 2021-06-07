@@ -1,3 +1,15 @@
+Lab 02: React State and Props.
+
+Number and name of feature: Feature #1: Display images, Feature #2: Allow users to vote for their favorite beast & Feature 3: Bootstrap.
+
+Estimate of time needed to complete: 1 hour, 1 hour and half & 1 hour and half.
+
+Start time: 1:00 pm
+
+Finish time: 5:00 pm
+
+Actual time needed to complete: 4 hours
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
