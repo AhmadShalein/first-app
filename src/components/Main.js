@@ -1,16 +1,62 @@
 import React from 'react';
 import HornedBeasts from './HornedBeasts';
 import Data from './data.json';
+import Form from 'react-bootstrap/Form';
 
 class Main extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      numOfHorns :'0',
+    }
+  }
+
+  updateHornes = (event) => {
+    this.setState ({
+      numOfHorns : event.target.value
+    })
+  }
+
     render(){
         return(
             <div>
+                <Form>
+                    <Form.Group>
+                        <Form.Label>How Many Horns?</Form.Label>
+                        <Form.Control as="select" onChange={this.updateHornes}>
+                            <option value='0'>All</option>
+                            <option value='1'>One</option>
+                            <option value='2'>Two</option>
+                            <option value='3'>Three</option>
+                            <option value='100'>Wow...</option>
+                        </Form.Control>
+                    </Form.Group>
+                </Form>
+
                 {Data.map(item => {
+                  if(this.state.numOfHorns == 0){
                     return (
                         <HornedBeasts title={item.title} description={item.description} url={item.image_url} />
                     )
-                })}
+                } else if(this.state.numOfHorns == item.horns && this.state.numOfHorns == 1){
+                  return (
+                    <HornedBeasts title={item.title} description={item.description} url={item.image_url} />
+                  )
+                } else if(this.state.numOfHorns == item.horns && this.state.numOfHorns == 2){
+                  return (
+                    <HornedBeasts title={item.title} description={item.description} url={item.image_url} />
+                  )
+                } else if(this.state.numOfHorns == item.horns && this.state.numOfHorns == 3){
+                  return (
+                    <HornedBeasts title={item.title} description={item.description} url={item.image_url} />
+                  )
+                } else if(this.state.numOfHorns == item.horns && this.state.numOfHorns == 100){
+                  return (
+                    <HornedBeasts title={item.title} description={item.description} url={item.image_url} />
+                  )
+                }
+              })}
                     {/* <HornedBeasts title={'UniWhal'} discription={'A unicorn and a narwhal nuzzling their horns'} url={'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg'} />
                     <HornedBeasts title={'Rhino Family'} discription={'Mother (or father) rhino with two babies'} url={'https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80'} />
                     <HornedBeasts title={'Unicorn Head'} discription={'Someone wearing a creepy unicorn head mask'} url={'https://www.dhresource.com/0x0s/f2-albu-g5-M00-1A-11-rBVaI1hsIIiALxKzAAIHjSU3VkE490.jpg/wholesale-halloween-costume-prop-unicorn.jpg'} />
